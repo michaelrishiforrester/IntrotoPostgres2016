@@ -23,4 +23,4 @@ sudo apt-get purge openjdk*
 sudo apt-get -y install openjdk-8-jdk
 
 #installing postgresql
-sudo apt-get -y install postgresql-client pgadmin3 postgresql-9.4 postgresql-contrib
+sudo apt-get -y install postgresql-client-9.4 pgadmin3 postgresql-9.4 postgresql-contrib-9.4
