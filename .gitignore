@@ -57,6 +57,8 @@ boxes/*
 /website/.vagrant
 /website/build
 /vagrant-spec.config.rb
+/Vagrant/*.log
+/Vagrant/.vagrant
 
 # Bundler/Rubygems
 *.gem
