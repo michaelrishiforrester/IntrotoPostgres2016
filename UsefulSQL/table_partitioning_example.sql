@@ -30,13 +30,12 @@ CREATE TABLE log_u ( CHECK ( log_type = 'u') ) INHERITS (log);
 CREATE TABLE log_i ( CHECK ( log_type = 'i') ) INHERITS (log);
 CREATE TABLE log_d ( CHECK ( log_type = 'd') ) INHERITS (log);
 
-car_portal=# INSERT INTO log (log_information, log_type) VALUES ('{"query": "SELECT 1", "user":"x" }', 'i');
-INSERT 0 0
-car_portal=# INSERT INTO  log (log_information, log_type) VALUES ('{"query": "UPDATE ...", "user":"x" }', 'u');
-INSERT 0 0
-car_portal=# INSERT INTO  log (log_information, log_type) VALUES ('{"query": "DELETE ...", "user":"x" }', 'd');
-INSERT 0 0 car_portal=# VACUUM ANALYSE LOG;
-VACUUM
+INSERT INTO log (log_information, log_type) VALUES ('{"query": "SELECT 1", "user":"x" }', 'i');
+
+INSERT INTO  log (log_information, log_type) VALUES ('{"query": "UPDATE ...", "user":"x" }', 'u');
+
+INSERT INTO  log (log_information, log_type) VALUES ('{"query": "DELETE ...", "user":"x" }', 'd');
+VACUUM ANALYSE LOG;
+
 
 EXPLAIN SELECT * FROM log WHERE log_type='i';
-                         QUERY PLAN
